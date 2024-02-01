@@ -1,14 +1,11 @@
-# Author: Your Name
-# Date: 2024-01-23
-
 class Shopper:
     # Class variables
-    __prices = {'apple': 1.99, 'bread': 2.19, 'milk': 4.96, 'pepper': 1.25}
-    __sale_items = ['pepper', 'banana']
-    __credit_threshold = 6
-    __default_price = 2.50
-    __volume_discount = 0.9
-    __sales_discount = 0.85
+    prices = {'apple': 1.99, 'bread': 2.19, 'milk': 4.96, 'pepper': 1.25}
+    sale_items = ['pepper', 'banana']
+    credit_threshold = 6
+    default_price = 2.50
+    volume_discount = 0.9
+    sales_discount = 0.85
 
     def __init__(self, name, money):
         # Instance variables
@@ -18,23 +15,23 @@ class Shopper:
 
     @classmethod
     def price_list(cls):
-        return cls.__prices
+        return cls.prices
 
     @classmethod
-    def sale_items(cls):
-        return cls.__sale_items
+    def sale_items_list(cls):
+        return cls.sale_items
 
     def purchase(self, items):
         total_cost = 0
         for item in items:
-            price = self.__prices.get(item, self.__default_price)
-            if item in self.__sale_items:
-                price *= self.__sales_discount
+            price = self.prices.get(item, self.default_price)
+            if item in self.sale_items:
+                price *= self.sales_discount
             self.purchases.append((item, price))
             total_cost += price
 
-        if total_cost > self.__credit_threshold:
-            total_cost *= self.__volume_discount
+        if total_cost > self.credit_threshold:
+            total_cost *= self.volume_discount
             self.money -= total_cost
 
     def __str__(self):
@@ -43,7 +40,7 @@ class Shopper:
 
 # Test Harness
 print(f'Price dict: {Shopper.price_list()}')
-print(f'Sales list: {Shopper.sale_items()}')
+print(f'Sales list: {Shopper.sale_items_list()}')
 
 nar = Shopper('Narendra', 20)     # Create a shopper object
 print(f'\n{nar}')                 # Display the object
