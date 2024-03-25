@@ -12,6 +12,7 @@ def __init__(self, topic = 'Comp216-Test', delay= 0.75):
     self.delay = delay
     self.pub_client.on_connect = self.on_connect 
     self.pub_client.on_publish = self.on_publish
+    self.pub_client.on_disconnect = self.on_disconnect 
     
     def on_connect(client, userdata, flags, reason, properties):
      print(f'Connection Reasn Code: {reason}')
