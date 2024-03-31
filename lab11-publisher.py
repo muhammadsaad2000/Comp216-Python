@@ -1,6 +1,5 @@
 import paho.mqtt.client as mqtt 
-import random 
-import uniform
+from random import uniform, randint
 import time 
 
 
@@ -13,7 +12,7 @@ def on_connect(client, userdata, flags, reason, properties):
     print(f'Connection Reasn Code: {reason}')
      
     
-client_pub = mqtt.Client(mqtt.CalllbackAPIVersion.VERSION2, client_id = 'COMP216-MS')
+client_pub = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id = 'COMP216-MS')
 
 client_pub.on_connect = on_connect
 

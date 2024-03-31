@@ -7,7 +7,7 @@ class Publisher:
     port = 1883
 
 def __init__(self, topic = 'Comp216-Test', delay= 0.75):
-    self.pub_client = mqtt.CLiet(mqtt.CalllbackAPIVersion.VERSION2, client_id = str(randint(0,100)))
+    self.pub_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id = str(randint(0,100)))
     self.topic = topic
     self.delay = delay
     self.pub_client.on_connect = self.on_connect 

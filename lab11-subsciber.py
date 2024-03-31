@@ -1,6 +1,6 @@
 
 import paho.mqtt.client as mqtt 
-
+from utils import print_data
 BROKER = 'mqtt.eclipseprojects.io'
 PORT = 1883
 
@@ -13,7 +13,7 @@ def on_message(client, userdata, msg):
      print(f'Temperature Value: {msg.payload.decode()}')
 
 
-client_sub = mqtt.CLient(mqtt.CalllbackAPIVersion.VERSION2, client_id = 'User-sDevice')
+client_sub = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id = 'User-sDevice')
 client_sub.connect(BROKER, port=PORT)
 
 
